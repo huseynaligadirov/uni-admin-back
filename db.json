@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Milli Aviasiya Akademiyasının yeni tədris ili açılış mərasimi keçirildi",
+      "slug": "naa-yeni-tedris-ili-acilis-merasimi",
+      "category": "News",
+      "status": "Active",
+      "publishStatus": "Publish",
+      "sharingTime": "06/11/2026 10:19 AM",
+      "author": "snovruzlu",
+      "coverImage": "/uploads/news1.jpg",
+      "gallery": ["/uploads/news1-1.jpg", "/uploads/news1-2.jpg"],
+      "content": "Milli Aviasiya Akademiyasında 2026-cı tədris ilinin açılış mərasimi baş tutdu. Tələbələr, müəllimlər və qonaqlar tədbirdə iştirak etdilər."
+    }
+  ],
+  "authors": [
+    { "username": "snovruzlu", "name": "Sevinc Novruzlu", "role": "Content Manager" }
+  ]
+}
