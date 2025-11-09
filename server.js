@@ -2,12 +2,25 @@ import express from "express";
 import fs from "fs";
 import path from "path";
 import cors from "cors";
+import multer from "multer";
 
 // Allow all origins
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 const __dirname = path.resolve();
+
+// Configure multer storage
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "uploads"));
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
 
 app.use(express.json());
 app.use(cors());
@@ -42,10 +55,17 @@ app.get("/api/posts/:id", (req, res) => {
   res.json(post);
 });
 
-// POST new post
-app.post("/api/posts", (req, res) => {
+// POST new post with image upload
+app.post("/api/posts", upload.single('image'), (req, res) => {
   const data = readData();
-  const newPost = { id: Date.now(), ...req.body };
+  
+  // If there's an uploaded file, add the file path to the post
+  const newPost = {
+    id: Date.now(),
+    ...req.body,
+    image: req.file ? `/uploads/${req.file.filename}` : null  // store the image path
+  };
+
   data.posts.push(newPost);
   writeData(data);
   res.status(201).json(newPost);
