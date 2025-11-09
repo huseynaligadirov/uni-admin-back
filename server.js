@@ -4,10 +4,14 @@ import path from "path";
 import cors from "cors";
 import multer from "multer";
 
-// Allow all origins
 const app = express();
 const PORT = process.env.PORT || 3000;
 const __dirname = path.resolve();
+
+// Create uploads directory if it doesn't exist
+if (!fs.existsSync(path.join(__dirname, "uploads"))) {
+  fs.mkdirSync(path.join(__dirname, "uploads"));
+}
 
 // Configure multer storage
 const storage = multer.diskStorage({
@@ -20,34 +24,62 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({ storage: storage });
+// Add file filter for images
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image/')) {
+    cb(null, true);
+  } else {
+    cb(new Error('Not an image! Please upload only image files.'), false);
+  }
+};
+
+// Configure multer with storage and file filter
+const upload = multer({ 
+  storage: storage,
+  fileFilter: fileFilter,
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 5MB limit
+  }
+});
 
 app.use(express.json());
 app.use(cors());
-// Serve static uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const DB_PATH = path.join(__dirname, "db.json");
 
-// Read db.json
+// Database functions
 function readData() {
-  return JSON.parse(fs.readFileSync(DB_PATH));
+  try {
+    return JSON.parse(fs.readFileSync(DB_PATH));
+  } catch (error) {
+    return { posts: [], authors: [] };
+  }
 }
 
-// Write db.json
 function writeData(data) {
   fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
 }
 
-// ---------- Posts Endpoints ----------
+// Image Upload Endpoint
+app.post("/api/upload", upload.single('image'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+    const imageUrl = `/uploads/${req.file.filename}`;
+    res.status(200).json({ imageUrl });
+  } catch (error) {
+    res.status(500).json({ message: "Error uploading file: " + error.message });
+  }
+});
 
-// GET all posts
+// Posts Endpoints
 app.get("/api/posts", (req, res) => {
   const data = readData();
   res.json(data.posts);
 });
 
-// GET post by ID
 app.get("/api/posts/:id", (req, res) => {
   const data = readData();
   const post = data.posts.find(p => p.id === parseInt(req.params.id));
@@ -55,43 +87,87 @@ app.get("/api/posts/:id", (req, res) => {
   res.json(post);
 });
 
-// POST new post with image upload
-app.post("/api/posts", upload.single('image'), (req, res) => {
-  const data = readData();
-  
-  // If there's an uploaded file, add the file path to the post
-  const newPost = {
-    id: Date.now(),
-    ...req.body,
-    image: req.file ? `/uploads/${req.file.filename}` : null  // store the image path
-  };
+app.post("/api/posts", (req, res) => {
+  try {
+    const data = readData();
+    
+    if (!req.body.title || !req.body.content) {
+      return res.status(400).json({ message: "Title and content are required" });
+    }
 
-  data.posts.push(newPost);
-  writeData(data);
-  res.status(201).json(newPost);
+    const slug = req.body.title
+      .toLowerCase()
+      .replace(/[əğıüçşö]/g, char => {
+        const map = { ə: 'e', ğ: 'g', ı: 'i', ü: 'u', ç: 'c', ş: 's', ö: 'o' };
+        return map[char];
+      })
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+    const newPost = {
+      id: Date.now(),
+      title: req.body.title,
+      slug: slug,
+      category: req.body.category || 'News',
+      status: req.body.status || 'Active',
+      publishStatus: req.body.publishStatus || 'Draft',
+      sharingTime: new Date().toLocaleString('en-US', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }),
+      author: req.body.author,
+      coverImage: req.body.coverImage || null,
+      gallery: req.body.gallery || [],
+      content: req.body.content
+    };
+
+    data.posts.push(newPost);
+    writeData(data);
+    res.status(201).json(newPost);
+  } catch (error) {
+    res.status(500).json({ message: "Error creating post: " + error.message });
+  }
 });
 
-// PUT update post
 app.put("/api/posts/:id", (req, res) => {
-  const data = readData();
-  const index = data.posts.findIndex(p => p.id === parseInt(req.params.id));
-  if (index === -1) return res.status(404).json({ message: "Post not found" });
-  data.posts[index] = { ...data.posts[index], ...req.body };
-  writeData(data);
-  res.json(data.posts[index]);
+  try {
+    const data = readData();
+    const index = data.posts.findIndex(p => p.id === parseInt(req.params.id));
+    if (index === -1) return res.status(404).json({ message: "Post not found" });
+    
+    const updatedPost = {
+      ...data.posts[index],
+      ...req.body,
+      updatedAt: new Date().toLocaleString()
+    };
+    
+    data.posts[index] = updatedPost;
+    writeData(data);
+    res.json(updatedPost);
+  } catch (error) {
+    res.status(500).json({ message: "Error updating post: " + error.message });
+  }
 });
 
-// DELETE post
 app.delete("/api/posts/:id", (req, res) => {
-  const data = readData();
-  const index = data.posts.findIndex(p => p.id === parseInt(req.params.id));
-  if (index === -1) return res.status(404).json({ message: "Post not found" });
-  const deleted = data.posts.splice(index, 1);
-  writeData(data);
-  res.json(deleted[0]);
+  try {
+    const data = readData();
+    const index = data.posts.findIndex(p => p.id === parseInt(req.params.id));
+    if (index === -1) return res.status(404).json({ message: "Post not found" });
+    
+    const deleted = data.posts.splice(index, 1)[0];
+    writeData(data);
+    res.json(deleted);
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting post: " + error.message });
+  }
 });
 
-// ---------- Authors Endpoints ----------
+// Authors Endpoints
 app.get("/api/authors", (req, res) => {
   const data = readData();
   res.json(data.authors);
@@ -104,5 +180,17 @@ app.get("/api/authors/:username", (req, res) => {
   res.json(author);
 });
 
-// Start server
+// Error handling middleware
+app.use((error, req, res, next) => {
+  if (error instanceof multer.MulterError) {
+    if (error.code === 'LIMIT_FILE_SIZE') {
+      return res.status(400).json({ message: 'File size is too large. Max size is 5MB.' });
+    }
+    return res.status(400).json({ message: "File upload error: " + error.message });
+  } else if (error) {
+    return res.status(500).json({ message: error.message });
+  }
+  next();
+});
+
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
