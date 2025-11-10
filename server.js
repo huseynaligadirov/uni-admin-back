@@ -7,20 +7,53 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const upload = multer({ dest: "uploads/" });
+
+// ----------------------
+// Multer Storage (keep extensions)
+// ----------------------
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/"); // save folder
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname); // keep extension
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + "-" + uniqueSuffix + ext);
+  },
+});
+
+const upload = multer({ storage });
+
+// ----------------------
+// LowDB setup
+// ----------------------
 const db = new Low(new JSONFile("news.json"), { posts: [] });
-
-// ✅ Enable CORS
-app.use(cors());
-app.use("/uploads", express.static("uploads"));
-
 await db.read();
 
-// ✅ POST — create new post
+// ----------------------
+// Middleware
+// ----------------------
+app.use(cors());
+app.use("/uploads", express.static("uploads"));
+app.use(express.json()); // in case you send JSON fields
+
+// ----------------------
+// Helper to remove files
+// ----------------------
+const removeFile = (filePath) => {
+  if (filePath && fs.existsSync(filePath)) {
+    fs.unlinkSync(filePath);
+  }
+};
+
+// ----------------------
+// POST — create new post
+// ----------------------
 app.post(
   "/posts",
   upload.fields([
@@ -38,8 +71,6 @@ app.post(
       coverImageLabel: req.body.coverImageLabel,
       coverImage: req.files["coverImage"]?.[0]?.path || null,
       galleryImages: req.files["galleryImages"]?.map((f) => f.path) || [],
-
-      // Defaults
       status: "active",
       publishStatus: "public",
       author: "khayalmdli",
@@ -53,7 +84,9 @@ app.post(
   }
 );
 
-// ✅ PUT — update existing post by ID
+// ----------------------
+// PUT — update existing post by ID
+// ----------------------
 app.put(
   "/posts/:id",
   upload.fields([
@@ -65,11 +98,8 @@ app.put(
     await db.read();
 
     const post = db.data.posts.find((p) => p.id === id);
-    if (!post) {
-      return res.status(404).json({ message: "Post not found" });
-    }
+    if (!post) return res.status(404).json({ message: "Post not found" });
 
-    // 🧩 Update fields conditionally
     post.title = req.body.title || post.title;
     post.slug = req.body.slug || post.slug;
     post.category = req.body.category || post.category;
@@ -77,15 +107,15 @@ app.put(
     post.htmlContent = req.body.htmlContent || post.htmlContent;
     post.coverImageLabel = req.body.coverImageLabel || post.coverImageLabel;
 
-    // 🖼 Update images only if re-uploaded
     if (req.files["coverImage"]?.length) {
+      removeFile(post.coverImage); // remove old
       post.coverImage = req.files["coverImage"][0].path;
     }
     if (req.files["galleryImages"]?.length) {
+      post.galleryImages.forEach(removeFile); // remove old
       post.galleryImages = req.files["galleryImages"].map((f) => f.path);
     }
 
-    // 🕒 Add updatedAt timestamp
     post.updatedAt = new Date().toISOString();
 
     await db.write();
@@ -93,20 +123,29 @@ app.put(
   }
 );
 
-// GET — all posts with pagination
-// GET — all posts with pagination and optional category filter
+// ----------------------
+// GET — all posts with pagination, category filter, search
+// ----------------------
 app.get("/posts", async (req, res) => {
   await db.read();
 
-  // Parse query params
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 10;
-  const category = req.query.category?.toLowerCase(); // "news" or "announcement"
+  const category = req.query.category?.toLowerCase();
+  const search = req.query.search?.toLowerCase();
 
-  // Filter by category if provided
   let filteredPosts = db.data.posts;
+
   if (category === "news" || category === "announcement") {
-    filteredPosts = filteredPosts.filter((post) => post.category.toLowerCase() === category);
+    filteredPosts = filteredPosts.filter(
+      (post) => post.category.toLowerCase() === category
+    );
+  }
+
+  if (search) {
+    filteredPosts = filteredPosts.filter((post) =>
+      post.htmlContent.toLowerCase().includes(search)
+    );
   }
 
   const totalPosts = filteredPosts.length;
@@ -124,25 +163,28 @@ app.get("/posts", async (req, res) => {
   });
 });
 
+// ----------------------
+// GET — single post by ID
+// ----------------------
+app.get("/posts/:id", async (req, res) => {
+  await db.read();
+  const post = db.data.posts.find((p) => p.id === req.params.id);
+  if (!post) return res.status(404).json({ message: "Post not found" });
+  res.json(post);
+});
 
-
-
-const removeFile = (filePath) => {
-  if (filePath && fs.existsSync(filePath)) {
-    fs.unlinkSync(filePath);
-  }
-};
-
-// DELETE — delete post by ID
+// ----------------------
+// DELETE — single post by ID
+// ----------------------
 app.delete("/posts/:id", async (req, res) => {
   const { id } = req.params;
   await db.read();
-  const postIndex = db.data.posts.findIndex((p) => p.id === id);
-  if (postIndex === -1) return res.status(404).json({ message: "Post not found" });
 
-  const [removedPost] = db.data.posts.splice(postIndex, 1);
+  const index = db.data.posts.findIndex((p) => p.id === id);
+  if (index === -1) return res.status(404).json({ message: "Post not found" });
 
-  // Remove associated files
+  const [removedPost] = db.data.posts.splice(index, 1);
+
   removeFile(removedPost.coverImage);
   removedPost.galleryImages.forEach(removeFile);
 
@@ -150,7 +192,9 @@ app.delete("/posts/:id", async (req, res) => {
   res.json({ message: "Post deleted successfully", post: removedPost });
 });
 
-// DELETE — delete all posts
+// ----------------------
+// DELETE — all posts
+// ----------------------
 app.delete("/posts", async (req, res) => {
   await db.read();
   db.data.posts.forEach((post) => {
@@ -162,15 +206,9 @@ app.delete("/posts", async (req, res) => {
   res.json({ message: "All posts deleted successfully" });
 });
 
-
-// ✅ GET — get single post
-app.get("/posts/:id", async (req, res) => {
-  await db.read();
-  const post = db.data.posts.find((p) => p.id === req.params.id);
-  if (!post) return res.status(404).json({ message: "Post not found" });
-  res.json(post);
-});
-
+// ----------------------
+// Start server
+// ----------------------
 app.listen(3000, () =>
   console.log("✅ Server running on http://localhost:3000")
 );
