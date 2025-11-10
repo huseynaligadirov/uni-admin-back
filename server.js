@@ -96,7 +96,9 @@ app.put(
     const { id } = req.params;
     await db.read();
 
-    const post = db.data.posts.find((p) => p.id === id);
+    const posts = db.data.posts
+
+    const post = posts.find((p) => p.id == id);
     if (!post) return res.status(404).json({ message: "Post not found" });
 
     post.title = req.body.title || post.title;
