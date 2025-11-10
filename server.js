@@ -123,6 +123,16 @@ app.put(
   }
 );
 
+
+app.get("/posts/:id", async (req, res) => {
+  await db.read();
+  const post = db.data.posts.find((p) => p.id === req.params.id);
+  if (!post) return res.status(404).json({ message: "Post not found" });
+  res.json(post);
+});
+
+
+
 // ----------------------
 // GET — all posts with pagination, category filter, search
 // ----------------------
@@ -166,12 +176,6 @@ app.get("/posts", async (req, res) => {
 // ----------------------
 // GET — single post by ID
 // ----------------------
-app.get("/posts/:id", async (req, res) => {
-  await db.read();
-  const post = db.data.posts.find((p) => p.id === req.params.id);
-  if (!post) return res.status(404).json({ message: "Post not found" });
-  res.json(post);
-});
 
 // ----------------------
 // DELETE — single post by ID
@@ -205,6 +209,9 @@ app.delete("/posts", async (req, res) => {
   await db.write();
   res.json({ message: "All posts deleted successfully" });
 });
+
+
+
 
 // ----------------------
 // Start server
