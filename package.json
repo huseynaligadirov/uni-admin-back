@@ -1,21 +1,16 @@
 {
-  "name": "uni-admin-back",
+  "name": "json-server-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "multer": "^2.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
+    "express": "^4.19.2",
+    "lowdb": "^6.0.1",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^5.0.2"
   }
 }
