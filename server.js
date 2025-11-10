@@ -188,8 +188,8 @@ app.get("/posts", async (req, res) => {
 app.delete("/posts/:id", async (req, res) => {
   const { id } = req.params;
   await db.read();
-
-  const index = db.data.posts.findIndex((p) => p.id === id);
+  const posts = db.data.posts;
+  const index = posts.findIndex((p) => p.id == id);
   if (index === -1) return res.status(404).json({ message: "Post not found" });
 
   const [removedPost] = db.data.posts.splice(index, 1);
@@ -206,7 +206,10 @@ app.delete("/posts/:id", async (req, res) => {
 // ----------------------
 app.delete("/posts", async (req, res) => {
   await db.read();
-  db.data.posts.forEach((post) => {
+
+  const posts = db.data.posts;
+  posts
+  .forEach((post) => {
     removeFile(post.coverImage);
     post.galleryImages.forEach(removeFile);
   });
