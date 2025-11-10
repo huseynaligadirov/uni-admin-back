@@ -1,5 +1,22 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "2MPvSttCABRLrgIDfzuVW",
+      "title": "\"wwwww\"",
+      "slug": "idcdc-c",
+      "category": "news",
+      "language": "az",
+      "htmlContent": "az",
+      "coverImageLabel": "slaaa",
+      "coverImage": null,
+      "galleryImages": [
+        "uploads\\galleryImages-1762814511055-45477448.png",
+        "uploads\\galleryImages-1762814511058-813772564.png"
+      ],
+      "status": "active",
+      "publishStatus": "public",
+      "author": "khayalmdli",
+      "createdAt": "2025-11-10T22:41:51.070Z"
+    }
+  ]
 }
-
-
