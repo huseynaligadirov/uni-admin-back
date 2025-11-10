@@ -18,10 +18,11 @@ const app = express();
 // ----------------------
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/"); // save folder
+    if (!fs.existsSync("uploads")) fs.mkdirSync("uploads");
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname); // keep extension
+    const ext = path.extname(file.originalname);
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(null, file.fieldname + "-" + uniqueSuffix + ext);
   },
@@ -40,15 +41,13 @@ await db.read();
 // ----------------------
 app.use(cors());
 app.use("/uploads", express.static("uploads"));
-app.use(express.json()); // in case you send JSON fields
+app.use(express.json());
 
 // ----------------------
 // Helper to remove files
 // ----------------------
 const removeFile = (filePath) => {
-  if (filePath && fs.existsSync(filePath)) {
-    fs.unlinkSync(filePath);
-  }
+  if (filePath && fs.existsSync(filePath)) fs.unlinkSync(filePath);
 };
 
 // ----------------------
@@ -108,30 +107,38 @@ app.put(
     post.coverImageLabel = req.body.coverImageLabel || post.coverImageLabel;
 
     if (req.files["coverImage"]?.length) {
-      removeFile(post.coverImage); // remove old
+      removeFile(post.coverImage);
       post.coverImage = req.files["coverImage"][0].path;
     }
+
     if (req.files["galleryImages"]?.length) {
-      post.galleryImages.forEach(removeFile); // remove old
+      post.galleryImages.forEach(removeFile);
       post.galleryImages = req.files["galleryImages"].map((f) => f.path);
     }
 
     post.updatedAt = new Date().toISOString();
-
     await db.write();
-    res.status(200).json(post);
+
+    res.json(post);
   }
 );
 
-
+// ----------------------
+// GET — single post by ID
+// ----------------------
 app.get("/posts/:id", async (req, res) => {
+
+  
   await db.read();
-  const post = db.data.posts.find((p) => p.id === req.params.id);
-  if (!post) return res.status(404).json({ message: "Post not found" });
-  res.json(post);
+  const posts = db.data.posts
+  const post_founded = posts.find(x => x.id == req.params.id);
+
+  console.log(post_founded);
+  
+  
+  if (!post_founded) return res.status(404).json({ message: "Post not found" });
+  res.json(post_founded);
 });
-
-
 
 // ----------------------
 // GET — all posts with pagination, category filter, search
@@ -174,10 +181,6 @@ app.get("/posts", async (req, res) => {
 });
 
 // ----------------------
-// GET — single post by ID
-// ----------------------
-
-// ----------------------
 // DELETE — single post by ID
 // ----------------------
 app.delete("/posts/:id", async (req, res) => {
@@ -209,9 +212,6 @@ app.delete("/posts", async (req, res) => {
   await db.write();
   res.json({ message: "All posts deleted successfully" });
 });
-
-
-
 
 // ----------------------
 // Start server
