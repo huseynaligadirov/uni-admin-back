@@ -94,18 +94,26 @@ app.put(
 );
 
 // GET — all posts with pagination
+// GET — all posts with pagination and optional category filter
 app.get("/posts", async (req, res) => {
   await db.read();
 
-  // Parse query params, defaults: page=1, limit=10
+  // Parse query params
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 10;
+  const category = req.query.category?.toLowerCase(); // "news" or "announcement"
 
+  // Filter by category if provided
+  let filteredPosts = db.data.posts;
+  if (category === "news" || category === "announcement") {
+    filteredPosts = filteredPosts.filter((post) => post.category.toLowerCase() === category);
+  }
+
+  const totalPosts = filteredPosts.length;
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
 
-  const totalPosts = db.data.posts.length;
-  const paginatedPosts = db.data.posts.slice(startIndex, endIndex);
+  const paginatedPosts = filteredPosts.slice(startIndex, endIndex);
 
   res.json({
     page,
@@ -115,6 +123,7 @@ app.get("/posts", async (req, res) => {
     posts: paginatedPosts,
   });
 });
+
 
 
 
