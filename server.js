@@ -190,12 +190,16 @@ app.delete("/posts/:id", async (req, res) => {
   await db.read();
   const posts = db.data.posts;
   const index = posts.findIndex((p) => p.id == id);
-  if (index === -1) return res.status(404).json({ message: "Post not found" });
+  if (index == -1) return res.status(404).json({ message: "Post not found" });
 
-  const [removedPost] = db.data.posts.splice(index, 1);
+  const [removedPost] = posts.splice(index, 1);
 
   removeFile(removedPost.coverImage);
-  removedPost.galleryImages.forEach(removeFile);
+  console.log(index, removedPost);
+  
+  if (removedPost.galleryImages?.length) {
+    removedPost.galleryImages.forEach(removeFile);
+  }
 
   await db.write();
   res.json({ message: "Post deleted successfully", post: removedPost });
