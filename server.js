@@ -99,7 +99,7 @@ app.post(
     const newPost = {
       id: nanoid(),
       title: req.body.title,
-      slug: req.body.slug,
+      url: req.body.slug,
       category: req.body.category,
       language: req.body.language,
       htmlContent: req.body.htmlContent,
@@ -107,7 +107,10 @@ app.post(
       coverImage: req.files["coverImage"]?.[0]?.path || null,
       galleryImages: req.files["galleryImages"]?.map((f) => f.path) || [],
       status: "active",
-      publishStatus: "public",
+      publishStatus:
+        req.body.publishStatus === "publish" || req.body.publishStatus === "draft"
+          ? req.body.publishStatus
+          : "draft",
       author: "khayalmdli",
       createdAt: new Date().toISOString(),
     };
@@ -143,6 +146,12 @@ app.put(
     post.language = req.body.language || post.language;
     post.htmlContent = req.body.htmlContent || post.htmlContent;
     post.coverImageLabel = req.body.coverImageLabel || post.coverImageLabel;
+    if (req.body.publishStatus) {
+      post.publishStatus =
+        req.body.publishStatus === "publish" || req.body.publishStatus === "draft"
+          ? req.body.publishStatus
+          : post.publishStatus;
+    }
 
     if (req.files["coverImage"]?.length) {
       removeFile(post.coverImage);
