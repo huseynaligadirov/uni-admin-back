@@ -203,12 +203,18 @@ app.get("/posts", async (req, res) => {
   const limit = parseInt(req.query.limit) || 10;
   const category = req.query.category?.toLowerCase();
   const search = req.query.search?.toLowerCase();
+  const activeStatus = req.query.activeStatus?.toLowerCase();
 
   let filteredPosts = db.data.posts;
 
   if (category === "news" || category === "announcement") {
     filteredPosts = filteredPosts.filter(
       (post) => post.category.toLowerCase() === category
+    );
+  }
+  if (activeStatus === "active" || activeStatus === "inactive") {
+    filteredPosts = filteredPosts.filter(
+      (post) => post.activeStatus.toLowerCase() === activeStatus
     );
   }
 
