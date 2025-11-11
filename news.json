@@ -10,7 +10,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "aar-66-modullari-uzre-imtahanda-istirak-etmek-isteyenlerin-nezerine",
-      "createdAt": "2020-09-09 11:35:57"
+      "createdAt": "2020-09-09 11:35:57",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 268,
@@ -22,7 +24,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyası-rektorunun-22-may-2020-ci",
-      "createdAt": "2020-05-22 11:27:03"
+      "createdAt": "2020-05-22 11:27:03",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 279,
@@ -34,7 +38,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "maa-i̇ngilis-dili-qruplarinda-tehsil-alan-telebelerin-nezerine",
-      "createdAt": "2020-10-01 14:04:58"
+      "createdAt": "2020-10-01 14:04:58",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 301,
@@ -46,7 +52,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "əziz-abituriyentlər!-sizi-maa-nın-hüquqşünaslıq-ixtisasında-təhsil",
-      "createdAt": "2021-08-23 18:02:16"
+      "createdAt": "2021-08-23 18:02:16",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 285,
@@ -58,7 +66,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-ilə-ukrayna-ali-radasının-qanunvericilik-i̇nstitutu",
-      "createdAt": "2021-04-02 15:13:57"
+      "createdAt": "2021-04-02 15:13:57",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 314,
@@ -70,7 +80,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "maa-nin-2022-2023-cu-tedris-ili-ucun-bakavriat-seviyyesi-uzre-qebul-plani",
-      "createdAt": "2022-03-30 14:05:57"
+      "createdAt": "2022-03-30 14:05:57",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 286,
@@ -82,7 +94,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-ilə-azərbaycan-respublikasının-konstitusiya-məhkəməsi-arasında",
-      "createdAt": "2021-04-05 14:46:21"
+      "createdAt": "2021-04-05 14:46:21",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 296,
@@ -94,7 +108,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "amea-nın-müxbir-üzvü,-professor-ağası-zərbəli-oğlu",
-      "createdAt": "2021-06-25 20:00:06"
+      "createdAt": "2021-06-25 20:00:06",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 332,
@@ -115,7 +131,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "21-oktyabr-2022-ci-il-tarixində-2-ci-qarabağ",
-      "createdAt": "2022-10-21 16:37:23"
+      "createdAt": "2022-10-21 16:37:23",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 339,
@@ -146,7 +164,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "beynəlxalq-mülki-aviasiya-gününə-və-milli-aviasiya",
-      "createdAt": "2022-12-07 14:10:31"
+      "createdAt": "2022-12-07 14:10:31",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 560,
@@ -163,7 +183,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-da-azerkosmos-terefinden-birinci-milli-kosmik-hakatona-hesr-olunmus-infosessiya-teskil-edilib",
-      "createdAt": "2025-10-16 08:08:23"
+      "createdAt": "2025-10-16 08:08:23",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 271,
@@ -175,7 +197,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-da-yekun-attestasiyalarin-ve-imtahan-sessiyasinin-teskili",
-      "createdAt": "2020-06-02 11:29:49"
+      "createdAt": "2020-06-02 11:29:49",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 269,
@@ -187,7 +211,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyasinin-telebelerinin-nezerine",
-      "createdAt": "2020-05-24 11:26:16"
+      "createdAt": "2020-05-24 11:26:16",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 284,
@@ -199,7 +225,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-ilə-azərbaycan-respublikasının-vəkillər-kollegiyası-arasında",
-      "createdAt": "2021-04-02 15:03:06"
+      "createdAt": "2021-04-02 15:03:06",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 386,
@@ -245,7 +273,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "gəncədə-mir-cəlal-paşayevin-ev-muzeyində-ulu-öndərin",
-      "createdAt": "2023-09-11 13:37:29"
+      "createdAt": "2023-09-11 13:37:29",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 322,
@@ -270,7 +300,9 @@
       "category": "NEWS",
       "videoUrl": "https://naa.edu.az/data/uploads/posts/2022/06/Akademiya-Tedbir.mp4",
       "url": "2-iyun-2022-ci-il-tarixinde-azerbaycan-hava-yollar-qsc-nin-maa-da-tedbir-kecirilib",
-      "createdAt": "2022-06-03 22:58:04"
+      "createdAt": "2022-06-03 22:58:04",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 528,
@@ -282,7 +314,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "socar-in-elmi-tereqqi-fondu-uzre-elmi-layiheleri",
-      "createdAt": "2025-06-30 19:43:16"
+      "createdAt": "2025-06-30 19:43:16",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 289,
@@ -294,7 +328,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "sosial-baximdan-hessas-ehali-qrupuna-aid-edilen-telebelerin-nezerine",
-      "createdAt": "2021-05-20 01:48:13"
+      "createdAt": "2021-05-20 01:48:13",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 308,
@@ -306,7 +342,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "30-noyabr-2021-ci-ildə-azərbaycan-respublikasının-dövlət",
-      "createdAt": "2021-12-01 16:29:03"
+      "createdAt": "2021-12-01 16:29:03",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 313,
@@ -318,7 +356,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "azerbaycanda-aviasiya-elminin-ve-tehsilinin-inkisafi",
-      "createdAt": "2022-02-16 14:54:13"
+      "createdAt": "2022-02-16 14:54:13",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 303,
@@ -330,7 +370,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "ali-mekteblere-qebul-olunmus-telebelerin-qeydiyyati-ucun-merkezler-yaradilmisdir",
-      "createdAt": "2021-09-07 17:12:31"
+      "createdAt": "2021-09-07 17:12:31",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 306,
@@ -351,7 +393,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "nizami-gencevinin-880-illiyine-hesr-olunmus-beynelxalq-konfrans",
-      "createdAt": "2021-11-26 21:12:08"
+      "createdAt": "2021-11-26 21:12:08",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 309,
@@ -374,7 +418,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "aviasiya-tehlukesizliyi-medeniyyeti-movzusunda-maa-da-seminar-kecirilib",
-      "createdAt": "2021-12-09 20:32:41"
+      "createdAt": "2021-12-09 20:32:41",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 302,
@@ -386,7 +432,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "maa-ya-qebul-olan-abituriyentlerin-nezerine",
-      "createdAt": "2021-09-06 22:01:33"
+      "createdAt": "2021-09-06 22:01:33",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 335,
@@ -403,7 +451,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "15-noyabr-2022-ci-il-tarixində-yeni-azərbaycan",
-      "createdAt": "2022-11-18 10:59:52"
+      "createdAt": "2022-11-18 10:59:52",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 334,
@@ -415,7 +465,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "teknofest-2023-texnologiya-yarışması-müraciətləri-başladı!",
-      "createdAt": "2022-11-17 09:14:42"
+      "createdAt": "2022-11-17 09:14:42",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 329,
@@ -427,7 +479,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyasına-qəbul-olan-abituriyentlərin-nəzərinə3",
-      "createdAt": "2022-09-01 12:27:09"
+      "createdAt": "2022-09-01 12:27:09",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 310,
@@ -439,7 +493,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "bakalavrların-nəzərinə!!!",
-      "createdAt": "2022-01-28 14:09:51"
+      "createdAt": "2022-01-28 14:09:51",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 326,
@@ -451,7 +507,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "magistraturaya-qəbul-olmuş-bakalavrların-nəzərinə!2",
-      "createdAt": "2022-07-15 16:32:09"
+      "createdAt": "2022-07-15 16:32:09",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 315,
@@ -463,7 +521,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyası-2022-ci-il-üçün-fəlsəfə",
-      "createdAt": "2022-04-05 22:28:35"
+      "createdAt": "2022-04-05 22:28:35",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 319,
@@ -475,7 +535,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyası-(maa)-2022-2023-cü-tədris-ili",
-      "createdAt": "2022-05-23 16:14:41"
+      "createdAt": "2022-05-23 16:14:41",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 305,
@@ -487,7 +549,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "socar-ın-elmi-tərəqqi-fondu-elmi-tədqiqat-layihələri-üzrə",
-      "createdAt": "2021-10-20 11:53:14"
+      "createdAt": "2021-10-20 11:53:14",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 307,
@@ -499,7 +563,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "tehsil-telebe-krediti-(ttk)-barede-elan",
-      "createdAt": "2021-11-27 13:38:29"
+      "createdAt": "2021-11-27 13:38:29",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 321,
@@ -524,7 +590,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-da-usaqlar-beynelxalq-mudafiesi-gunune-hesr-olunmus-tedbiri-kecirilib",
-      "createdAt": "2022-06-01 16:36:34"
+      "createdAt": "2022-06-01 16:36:34",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 341,
@@ -541,7 +609,9 @@
       "category": "NEWS",
       "videoUrl": "https://naa.edu.az/data/uploads/posts/2022/12/WhatsApp-Video-2022-12-26-at-13.00.17.mp4",
       "url": "2022-ci-ilin-dekabr-ayının-25-də-qarşıdan-gələn",
-      "createdAt": "2022-12-26 13:15:28"
+      "createdAt": "2022-12-26 13:15:28",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 312,
@@ -553,7 +623,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "teknofest-azərbaycan-festivalında-iştirak-barədə",
-      "createdAt": "2022-02-07 20:49:08"
+      "createdAt": "2022-02-07 20:49:08",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 299,
@@ -565,7 +637,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "magistraturaya-qebul-olmus-bakalavrlarin-nezerine",
-      "createdAt": "2021-07-12 18:49:01"
+      "createdAt": "2021-07-12 18:49:01",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 340,
@@ -586,7 +660,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "2022-ci-ilin-dekabr-ayının-11-də-ümummilli-lider",
-      "createdAt": "2022-12-12 09:58:10"
+      "createdAt": "2022-12-12 09:58:10",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 327,
@@ -598,7 +674,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "azərbaycan-respublikasına-gələn-əcnəbilər-və-vətəndaşlığı-olmayan",
-      "createdAt": "2022-08-01 16:13:17"
+      "createdAt": "2022-08-01 16:13:17",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 325,
@@ -627,7 +705,9 @@
       "category": "NEWS",
       "videoUrl": "https://naa.edu.az/data/uploads/posts/2022/07/MAA.mp4",
       "url": "i̇yulun-8-də-milli-aviasiya-akademiyasında-məzun-günü",
-      "createdAt": "2022-07-08 11:32:22"
+      "createdAt": "2022-07-08 11:32:22",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 304,
@@ -639,7 +719,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "yataqxana-ucun-muraciet-edenlerin-nezerine",
-      "createdAt": "2021-09-21 14:36:13"
+      "createdAt": "2021-09-21 14:36:13",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 433,
@@ -657,7 +739,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "şəhid-övladları-pilotların-hazırlığı-mərkəzini-ziyarət-ediblər.",
-      "createdAt": "2024-02-22 15:04:39"
+      "createdAt": "2024-02-22 15:04:39",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 461,
@@ -675,7 +759,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyasının-4-tələbəsi-məhəmməd-bin",
-      "createdAt": "2024-09-09 14:16:17"
+      "createdAt": "2024-09-09 14:16:17",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 388,
@@ -697,7 +783,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "aztu-və-maa-tusaş-ın-yeni-nəsil-mühəndis",
-      "createdAt": "2023-09-20 12:46:09"
+      "createdAt": "2023-09-20 12:46:09",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 323,
@@ -709,7 +797,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyasında-(maa)-2022-2023-cü-tədris-ili",
-      "createdAt": "2022-06-06 16:26:29"
+      "createdAt": "2022-06-06 16:26:29",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 324,
@@ -721,7 +811,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyası-2022-ci-il-yaz-sessiyası",
-      "createdAt": "2022-06-24 11:09:11"
+      "createdAt": "2022-06-24 11:09:11",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 317,
@@ -746,7 +838,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "aviasiya-meteorologiyası-kafedrasının-bir-qrup-müəllim-və",
-      "createdAt": "2022-05-23 13:39:22"
+      "createdAt": "2022-05-23 13:39:22",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 492,
@@ -763,7 +857,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "məhkəmə-hüquq-şurası-ilə-milli-aviasiya-akademiyası-arasında",
-      "createdAt": "2025-03-01 20:07:42"
+      "createdAt": "2025-03-01 20:07:42",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 338,
@@ -775,7 +871,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyasında-heydər-əliyev-və-azərbaycançılıq",
-      "createdAt": "2022-12-02 10:38:51"
+      "createdAt": "2022-12-02 10:38:51",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 432,
@@ -792,7 +890,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "azərbaycan-respublikasının-müdafiə-nazirliyinin-təşkilatçılığı,-i̇rəli-i̇ctimai",
-      "createdAt": "2024-02-22 11:55:17"
+      "createdAt": "2024-02-22 11:55:17",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 297,
@@ -804,7 +904,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "maa-fəlsəfə-və-elmlər-doktoru-hazırlığı-üzrə",
-      "createdAt": "2021-07-06 15:20:36"
+      "createdAt": "2021-07-06 15:20:36",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 527,
@@ -823,7 +925,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "sares-elmi-cemiyyetinin-prezidenti-hikmet-karakoc-maa-da--rektor-akademik-arif-pasayevle-gorusub",
-      "createdAt": "2025-06-25 09:21:14"
+      "createdAt": "2025-06-25 09:21:14",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 516,
@@ -835,7 +939,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyasının-doktorantura-səviyyəsinə-qəbul-olmaq",
-      "createdAt": "2025-05-14 11:51:03"
+      "createdAt": "2025-05-14 11:51:03",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 563,
@@ -857,7 +963,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-ile-bayraktar-teknoloji-azerbaycan-mmc-arasinda-memorandum-imzalanib",
-      "createdAt": "2025-10-18 05:37:23"
+      "createdAt": "2025-10-18 05:37:23",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 276,
@@ -869,7 +977,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "azərbaycan-hava-yolları-qsc-nin-milli-aviasiya-akademiyası1",
-      "createdAt": "2020-09-14 12:26:48"
+      "createdAt": "2020-09-14 12:26:48",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 280,
@@ -881,7 +991,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "azərbaycan-hava-yolları-qsc-milli-aviasiya-akademiyasına",
-      "createdAt": "2020-10-17 14:04:06"
+      "createdAt": "2020-10-17 14:04:06",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 288,
@@ -893,7 +1005,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-ilə-azərbaycan-respublikasının-ədliyyə-nazirliyi-arasında",
-      "createdAt": "2021-05-09 21:19:32"
+      "createdAt": "2021-05-09 21:19:32",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 272,
@@ -905,7 +1019,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "magistratura-seviyyesi-uzre-qebul-olmus-bakalavrlarin-nezerine",
-      "createdAt": "2020-06-29 11:28:58"
+      "createdAt": "2020-06-29 11:28:58",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 281,
@@ -917,7 +1033,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "maa-nin-telebelerinin-nezerine",
-      "createdAt": "2020-10-17 14:04:35"
+      "createdAt": "2020-10-17 14:04:35",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 287,
@@ -929,7 +1047,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-ilə-azərbaycan-respublikasının-baş-prokurorluğu-arasında",
-      "createdAt": "2021-04-06 16:02:59"
+      "createdAt": "2021-04-06 16:02:59",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 270,
@@ -941,7 +1061,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "maa-telebelerinin-nezerine",
-      "createdAt": "2020-05-24 11:27:53"
+      "createdAt": "2020-05-24 11:27:53",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 283,
@@ -953,7 +1075,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "2021-2022-ci-tedris-ili-ucun-magistratura-pillesine-qevul-baslandi",
-      "createdAt": "2021-02-10 01:06:18"
+      "createdAt": "2021-02-10 01:06:18",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 298,
@@ -982,7 +1106,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "milli-aviasiya-akademiyasında-məzun-günü-keçirilib",
-      "createdAt": "2021-07-07 22:11:54"
+      "createdAt": "2021-07-07 22:11:54",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 431,
@@ -994,7 +1120,9 @@
       "category": "ANNOUNCEMENT",
       "videoUrl": null,
       "url": "hörmətli-professor-müəllim-və-tələbə-heyəti,-sizi-əsgərin",
-      "createdAt": "2024-02-16 17:15:39"
+      "createdAt": "2024-02-16 17:15:39",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 491,
@@ -1011,7 +1139,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "xocalı-soyqırımın-33-cü-ildönümü",
-      "createdAt": "2025-02-27 14:12:58"
+      "createdAt": "2025-02-27 14:12:58",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     },
     {
       "id": 529,
@@ -1036,7 +1166,9 @@
       "category": "NEWS",
       "videoUrl": null,
       "url": "maa-ile-azerbaycan-edliyye-nazirliyinin-emekdasligi",
-      "createdAt": "2025-07-02 19:46:47"
+      "createdAt": "2025-07-02 19:46:47",
+      "publishStatus": "publish",
+      "activeStatus": "active"
     }
   ]
 }
