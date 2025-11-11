@@ -152,6 +152,12 @@ app.put(
           ? req.body.publishStatus
           : post.publishStatus;
     }
+    if (req.body.activeStatus) {
+      post.activeStatus =
+        req.body.activeStatus === "active" || req.body.activeStatus === "inactive"
+          ? req.body.activeStatus
+          : post.activeStatus;
+    }
 
     if (req.files["coverImage"]?.length) {
       removeFile(post.coverImage);
