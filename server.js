@@ -51,6 +51,42 @@ const removeFile = (filePath) => {
 };
 
 // ----------------------
+// Helper: extract plain text from Draft.js raw or HTML string
+// ----------------------
+const extractPlainText = (raw) => {
+  if (!raw) return "";
+
+  // If object: try Draft.js raw shape
+  if (typeof raw === "object") {
+    try {
+      if (Array.isArray(raw.blocks)) {
+        return raw.blocks.map(b => (b && b.text) ? String(b.text) : "").join(" ");
+      }
+    } catch (_) {
+      // fall through
+    }
+    // Fallback stringify
+    raw = JSON.stringify(raw);
+  }
+
+  if (typeof raw === "string") {
+    // Try Draft.js JSON stored as string
+    try {
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.blocks)) {
+        return parsed.blocks.map(b => (b && b.text) ? String(b.text) : "").join(" ");
+      }
+    } catch (_) {
+      // Not JSON; maybe HTML
+    }
+    // Strip HTML tags if present
+    return raw.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  }
+
+  return "";
+};
+
+// ----------------------
 // POST — create new post
 // ----------------------
 app.post(
@@ -162,9 +198,13 @@ app.get("/posts", async (req, res) => {
   }
 
   if (search) {
-    filteredPosts = filteredPosts.filter((post) =>
-      post.htmlContent.toLowerCase().includes(search)
-    );
+    filteredPosts = filteredPosts.filter((post) => {
+      const title = (post.title || "").toString().toLowerCase();
+      if (title.includes(search)) return true;
+
+      const plain = extractPlainText(post.htmlContent).toLowerCase();
+      return plain.includes(search);
+    });
   }
 
   const totalPosts = filteredPosts.length;
